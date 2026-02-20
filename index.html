@@ -2,15 +2,289 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 【需要修改】替换为你的姓名 -->
+    <title>Yuqi Zhang - 个人主页</title>
     <style>
-        body { max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        /* 全局重置与基础样式（极简风格核心） */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* 容器：居中+留白 */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 40px;
+            align-items: start;
+        }
+        /* 侧边栏（头像+基础信息） */
+        .sidebar {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 40px;
+        }
+        /* 头像样式（圆形+边框装饰） */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 2px solid #eee;
+            /* 【可选修改】调整头像边框样式，如改为 #000 黑色边框 */
+        }
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            /* 【可选修改】调整姓名颜色，默认黑色 */
+            color: #000;
+        }
+        .title {
+            font-size: 1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            /* 【需要修改】替换为你的职业/标签 */
+        }
+        /* 联系方式模块 */
+        .contact {
+            margin-top: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .contact-item i {
+            width: 18px;
+            color: #888;
+            /* 【可选修改】调整图标颜色 */
+        }
+        .contact-item a {
+            color: #555;
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+        /* 主内容区 */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        /* 模块卡片样式 */
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            /* 【可选修改】调整模块标题下划线颜色 */
+        }
+        /* 关于我模块 */
+        .about-text {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        /* 技能模块 */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .skill-item {
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #333;
+            /* 【可选修改】调整技能标签背景色 */
+        }
+        /* 项目模块 */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .project-item {
+            border-left: 3px solid #eee;
+            padding-left: 15px;
+            /* 【可选修改】调整项目左侧边框颜色，如 #000 */
+        }
+        .project-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #000;
+        }
+        .project-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .project-link {
+            font-size: 0.9rem;
+            color: #555;
+            text-decoration: none;
+        }
+        .project-link:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+        /* 底部版权信息 */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        /* 响应式适配（手机端） */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* 引入图标库（装饰用） */
+        @import url('https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css');
     </style>
 </head>
 <body>
-    <h1>Hi，欢迎访问我的主页！</h1>
-    <p>这是通过 GitHub Pages 搭建的免费静态网站 ✨</p>
-    <p>可以展示个人简历、项目作品集或技术博客~</p>
+    <div class="container">
+        <!-- 侧边栏：头像+基础信息 -->
+        <aside class="sidebar">
+            <!-- 【需要修改】替换为你的头像链接（GitHub仓库相对路径/在线图床） -->
+            <img src="【你的头像URL，如：./avatar.jpg】" alt="头像" class="avatar">
+            <h1 class="name">Yuqi Zhang</h1>
+            <p class="title">Senior High School</p>
+            
+            <!-- 联系方式 -->
+            <div class="contact">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>【你的邮箱，如：xxx@xxx.com】</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="【你的GitHub链接，如：https://github.com/你的用户名】" target="_blank">
+                        github.com/yuqizhang1225
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="【你的个人网站（可选）】" target="_blank">
+                        https://yuqizhang1225.github.io/
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-weixin"></i>
+                    <span>【你的微信号（可选）】</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 关于我模块 -->
+            <section class="card about">
+                <h2 class="card-title">About Me</h2>
+                <p class="about-text">
+                    As a high school student with a keen passion for artificial intelligence and big data, I possess basic skills in programming and data analysis. 
+                </p>
+                <p class="about-text">
+                    What's more, I consistently focus on the humanistic implications and social responsibilities inherent in technology. 
+                </p>
+                <p class="about-text">
+                    My goal is to deepen my comprehension and hone my capabilities through practical experience, and to explore viable approaches for AI applications in the realm of public welfare.
+                </p>
+            </section>
+
+            <!-- 技能模块 -->
+            <section class="card skills-card">
+                <h2 class="card-title">Skills</h2>
+                <div class="skills">
+                    <!-- 【需要修改】替换为你的技能，新增/删除skill-item即可 -->
+                    <!--div class="skill-item">HTML/CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Vue</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Git/GitHub</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">MySQL</div-->
+                </div>
+            </section>
+
+            <!-- 项目模块 -->
+            <section class="card projects-card">
+                <h2 class="card-title">Projects</h2>
+                <div class="project-list">
+                    <!-- 项目1 【需要修改】 -->
+                    <div class="project-item">
+                        <h3 class="project-name">【项目名称1，如：个人博客系统】</h3>
+                        <p class="project-desc">
+                            【项目描述1：简要说明功能、技术栈、成果，如：基于Vue+Express开发的个人博客，支持文章发布、评论、分类管理，适配移动端】
+                        </p>
+                        <a href="【项目GitHub链接1】" target="_blank" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                    <!-- 项目2 【需要修改】 -->
+                    <div class="project-item">
+                        <h3 class="project-name">【项目名称2，如：电商首页复刻】</h3>
+                        <p class="project-desc">
+                            【项目描述2：如：使用HTML/CSS/JavaScript复刻主流电商首页，实现轮播图、商品列表、购物车等核心交互效果】
+                        </p>
+                        <a href="【项目GitHub链接2】" target="_blank" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                    <!-- 可新增更多项目，复制project-item模块即可 -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 底部版权 -->
+    <footer class="footer">
+        <!-- 【需要修改】替换为年份和你的姓名 -->
+        <p>© 2026 Yuqi Zhang All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
