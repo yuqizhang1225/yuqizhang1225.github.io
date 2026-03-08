@@ -3,288 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 【需要修改】替换为你的姓名 -->
-    <title>Yuqi Zhang - 个人主页</title>
+    <meta name="description" content="Yuqi Zhang - Senior High School student passionate about AI and Big Data">
+    <title>Yuqi Zhang | Portfolio</title>
     <style>
-        /* 全局重置与基础样式（极简风格核心） */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-color: #3b82f6;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.08);
+            --border-color: #e8e3eb;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
         }
+
         body {
-            background-color: #f8f8f8;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d0d0d 100%);
+            min-height: 100vh;
+            margin: 0;
         }
-        /* 容器：居中+留白 */
+
         .container {
-            display: grid;
-            grid-template-columns: 1fr 2.5fr;
-            gap: 40px;
-            align-items: start;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
-        /* 侧边栏（头像+基础信息） */
-        .sidebar {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 40px;
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            animation: fadeInUp 0.8s ease-out;
         }
-        /* 头像样式（圆形+边框装饰） */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s;
+        }
+
         .avatar {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: block;
-            border: 2px solid #eee;
-            /* 【可选修改】调整头像边框样式，如改为 #000 黑色边框 */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
         .name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 10px;
-            /* 【可选修改】调整姓名颜色，默认黑色 */
-            color: #000;
+            margin-bottom: 0.5rem;
         }
+
         .title {
-            font-size: 1rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 30px;
-            /* 【需要修改】替换为你的职业/标签 */
+            font-size: 1.25rem;
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
         }
-        /* 联系方式模块 */
+
         .contact {
-            margin-top: 20px;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            color: #555;
-            font-size: 0.95rem;
-        }
-        .contact-item i {
-            width: 18px;
-            color: #888;
-            /* 【可选修改】调整图标颜色 */
-        }
-        .contact-item a {
-            color: #555;
-            text-decoration: none;
-        }
-        .contact-item a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-        /* 主内容区 */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        /* 模块卡片样式 */
-        .card {
-            background-color: #fff;
-            padding: 30px;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
-        .card-title {
-            font-size: 1.4rem;
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .about-section {
+            animation: fadeInUp 0.8s ease-out 0.4s;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            /* 【可选修改】调整模块标题下划线颜色 */
+            margin-bottom: 2rem;
+            color: var(--accent-color);
         }
-        /* 关于我模块 */
-        .about-text {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        /* 技能模块 */
-        .skills {
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
-        .skill-item {
-            background-color: #f5f5f5;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            color: #333;
-            /* 【可选修改】调整技能标签背景色 */
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* 项目模块 */
-        .project-list {
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+
+        .card-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            background: #2a6f97;
+            transform: translateY(-2px);
+        }
+
+        .projects-section {
+            animation: fadeInUp 0.8s ease-out 0.6s;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
-            gap: 20px;
         }
-        .project-item {
-            border-left: 3px solid #eee;
-            padding-left: 15px;
-            /* 【可选修改】调整项目左侧边框颜色，如 #000 */
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
-        .project-name {
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 4px;
+            color: #3b82f6;
+        }
+
+        .project-title {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 5px;
-            color: #000;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
+
         .project-desc {
+            color: #6b7280;
             font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 8px;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            flex: 1;
         }
+
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
         .project-link {
-            font-size: 0.9rem;
-            color: #555;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
             text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
+
         .project-link:hover {
-            color: #000;
-            text-decoration: underline;
+            background: var(--accent-color);
+            color: white;
         }
-        /* 底部版权信息 */
+
+        .thought-log {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .thought-log h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .thought-entry {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .thought-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .thought-date {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 0.25rem;
+        }
+
+        .thought-content {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
         .footer {
             text-align: center;
-            margin-top: 40px;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            color: #6b7280;
             font-size: 0.9rem;
-            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* 响应式适配（手机端） */
+
         @media (max-width: 768px) {
             .container {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
             }
-            .sidebar {
-                position: static;
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
-            .skills {
-                grid-template-columns: repeat(2, 1fr);
+
+            .contact {
+                flex-direction: column;
             }
         }
-        /* 引入图标库（装饰用） */
-        @import url('https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css');
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 侧边栏：头像+基础信息 -->
-        <aside class="sidebar">
-            <!-- 【需要修改】替换为你的头像链接（GitHub仓库相对路径/在线图床） -->
-            <img src="【你的头像URL，如：./avatar.jpg】" alt="头像" class="avatar">
-            <h1 class="name">Yuqi Zhang</h1>
-            <p class="title">Senior High School</p>
-            
-            <!-- 联系方式 -->
-            <div class="contact">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>【你的邮箱，如：xxx@xxx.com】</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="【你的GitHub链接，如：https://github.com/你的用户名】" target="_blank">
-                        github.com/yuqizhang1225
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-globe"></i>
-                    <a href="【你的个人网站（可选）】" target="_blank">
-                        https://yuqizhang1225.github.io/
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-weixin"></i>
-                    <span>【你的微信号（可选）】</span>
+        <!-- Header Section -->
+        <header class="header">
+            <div class="avatar-section">
+                <div class="avatar">🎓</div>
+                <div class="name">Yuqi Zhang</div>
+                <div class="title">Senior High School</div>
+                <div class="contact">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>你的邮箱，如：xxx@xxx.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🔗</span>
+                        <span>你的GitHub链接，如：https://github.com/yuqizhang1225</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <span>你的微信号（可选）</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <span>你的个人网站（可选）</span>
+                    </div>
                 </div>
             </div>
-        </aside>
+        </header>
 
-        <!-- 主内容区 -->
-        <main class="main-content">
-            <!-- 关于我模块 -->
-            <section class="card about">
-                <h2 class="card-title">About Me</h2>
-                <p class="about-text">
-                    As a high school student with a keen passion for artificial intelligence and big data, I possess basic skills in programming and data analysis. 
-                </p>
-                <p class="about-text">
-                    What's more, I consistently focus on the humanistic implications and social responsibilities inherent in technology. 
-                </p>
-                <p class="about-text">
-                    My goal is to deepen my comprehension and hone my capabilities through practical experience, and to explore viable approaches for AI applications in the realm of public welfare.
-                </p>
-            </section>
-
-            <!-- 技能模块 -->
-            <section class="card skills-card">
-                <h2 class="card-title">Skills</h2>
-                <div class="skills">
-                    <!-- 【需要修改】替换为你的技能，新增/删除skill-item即可 -->
-                    <!--div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Vue</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">Git/GitHub</div>
-                    <div class="skill-item">Node.js</div>
-                    <div class="skill-item">MySQL</div-->
-                </div>
-            </section>
-
-            <!-- 项目模块 -->
-            <section class="card projects-card">
-                <h2 class="card-title">Projects</h2>
-                <div class="project-list">
-                    <!-- 项目1 【需要修改】 -->
-                    <div class="project-item">
-                        <h3 class="project-name">【项目名称1，如：个人博客系统】</h3>
-                        <p class="project-desc">
-                            【项目描述1：简要说明功能、技术栈、成果，如：基于Vue+Express开发的个人博客，支持文章发布、评论、分类管理，适配移动端】
-                        </p>
-                        <a href="【项目GitHub链接1】" target="_blank" class="project-link">
-                            GitHub →
-                        </a>
+        <!-- About Me Section -->
+        <section class="about-section">
+            <div class="section-title">🚀 关于我</div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">💻</div>
+                    <div class="card-title">技术与热情</div>
+                    <div class="card-text">
+                        作为一名对人工智能和大数据充满热情的高中生，我不仅专注于学术学习，更积极探索技术在实际生活中的应用。我相信技术应该服务于人类，通过创新的思维和持续的学习，为社会创造真正的价值。
                     </div>
-                    <!-- 项目2 【需要修改】 -->
-                    <div class="project-item">
-                        <h3 class="project-name">【项目名称2，如：电商首页复刻】</h3>
-                        <p class="project-desc">
-                            【项目描述2：如：使用HTML/CSS/JavaScript复刻主流电商首页，实现轮播图、商品列表、购物车等核心交互效果】
-                        </p>
-                        <a href="【项目GitHub链接2】" target="_blank" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
-                    <!-- 可新增更多项目，复制project-item模块即可 -->
                 </div>
-            </section>
-        </main>
+                <div class="about-card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">社会关怀</div>
+                    <div class="card-text">
+                        我深信技术发展的最终目标是提升人类福祉。因此，我特别关注技术在公共服务、社会福利和可持续发展领域的潜力。我希望能够利用AI和大数据的力量，帮助解决社会问题，让技术发展成果惠及更多人群。
+                    </div>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🌱</div>
+                    <div class="card-title">持续学习</div>
+                    <div class="card-text">
+                        在快速变化的技术世界中，我始终保持开放的学习心态。无论是编程、数据分析还是机器学习，我都享受从失败中学习和成长的过程。我相信最好的学习方式是实践、反思和迭代。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="section-title">📁 项目作品</div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <div class="project-title">个人博客系统</div>
+                    </div>
+                    <div class="project-desc">
+                        【项目描述1：简要说明功能、技术栈、成果，如：基于Vue+Express开发的个人博客，支持文章发布、评论、分类管理，适配移动端】
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yuqizhang1225/personal-blog" class="project-link" target="_blank">GitHub →</a>
+                        <a href="#" class="project-link">演示网站</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-title">电商首页复刻</div>
+                    </div>
+                    <div class="project-desc">
+                        【项目描述2：如：使用HTML/CSS/JavaScript复刻主流电商首页，实现轮播图、商品列表、购物车等核心交互效果】
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yuqizhang1225/ecommerce-clone" class="project-link" target="_blank">GitHub →</a>
+                        <a href="#" class="project-link">演示网站</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">数据分析</span>
+                            <span class="tag">可视化</span>
+                        </div>
+                        <div class="project-title">数据可视化平台</div>
+                    </div>
+                    <div class="project-desc">
+                        【项目描述3：如：使用Python开发的数据分析和可视化平台，支持多种图表类型、数据导入导出、交互式报表等功能】
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yuqizhang1225/data-visualization" class="project-link" target="_blank">GitHub →</a>
+                        <a href="#" class="project-link">演示网站</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thought Log Section -->
+        <section class="thought-log">
+            <h3>💭 思考记录</h3>
+            <div class="thought-entry">
+                <div class="thought-date">2026-03-08</div>
+                <div class="thought-content">
+                    ✅ 网站改版完成：采用现代化设计风格，参考 GitHub 卡片式布局，优化响应式适配。新增动画效果和悬停交互，提升用户体验。
+                    <br><br>
+                    🚀 今天我想到，急救场景中机器人也能发挥重要作用。<br>
+在公共场所最常见的 AED 自动体外除颤仪，虽然配有语音指导，但整个提示流程长达 30–40 秒。再加上现场人员往往处于慌乱状态，很容易错过心脏骤停后的黄金抢救 4 分钟。<br>
+因此我设想，可以设计一套一体化智能急救系统：<br>
+先将患者安置在预设的定位区域（比如设计成 L 形限位区，让人体被稳定卡在标准位置），再由 AI 自动识别并定位正确的除颤与按压部位，最后通过机械臂自动完成电击、胸外按压、人工呼吸等全套急救操作。<br>
+这套系统的优势十分明显：<br>
+第一，紧急情况下，即便有语音指导，普通人也容易出现操作失误，比如未及时让周围人员远离，可能导致干扰甚至触电风险。而一体化急救设备外部可加装绝缘层，从结构上提升安全性，降低人为失误。<br>
+第二，在事故现场，如果患者口鼻有血液等体液，人工施救可能存在交叉感染或血型不合带来的健康风险，机器施救则能完全避免这一问题。<br>
+第三，我国掌握规范胸外按压技能的人群不足总人口 1%，按压力度、位置不当都会直接导致抢救无效，而标准化的机械急救可以保证操作质量稳定可靠。<br>
+在此基础上，我还想到几个延伸方向：<br>
+软体机器人是否可以应用在这类急救场景中？它更柔软、更贴合人体，或许能减轻胸外按压等操作带来的二次伤害。<br>
+同时，这套系统能否与其他设备联动，比如附近医院、社区健康监测终端、个人智能健康设备等，实现个人健康数据与急救设备的实时互通，进一步提高抢救成功率？
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Yuqi Zhang All Rights Reserved.</p>
+        </footer>
     </div>
-
-    <!-- 底部版权 -->
-    <footer class="footer">
-        <!-- 【需要修改】替换为年份和你的姓名 -->
-        <p>© 2026 Yuqi Zhang All Rights Reserved.</p>
-    </footer>
 </body>
 </html>
