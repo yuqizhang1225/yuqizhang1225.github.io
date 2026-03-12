@@ -1,362 +1,274 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Yuqi Zhang">
-    <meta property="og:url" content="https://yuqizhang1225.github.io/">
-    <meta property="og:site_name" content="Yuqi Zhang">
-    <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary">
-
-    <title>Yuqi Zhang | Blog</title>
-
-    <link rel="alternate" href="/atom.xml" title="Yuqi Zhang" type="application/atom+xml">
-    <link rel="shortcut icon" href="/favicon.png">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%);
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .header {
-            text-align: center;
-            padding: 3rem 0;
-            border-bottom: 1px solid #333;
-            margin-bottom: 2rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #3b82f6;
-        }
-
-        .header p {
-            color: #999;
-            font-size: 1rem;
-        }
-
-        .nav {
-            margin: 1rem 0;
-        }
-
-        .nav a {
-            display: inline-block;
-            margin: 0 1rem;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .nav a:hover {
-            color: #3b82f6;
-        }
-
-        .article-list {
-            margin-bottom: 2rem;
-        }
-
-        .article-item {
-            background: #1a1a1a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #333;
-        }
-
-        .article-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-            border-color: #3b82f6;
-        }
-
-        .article-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #e0e0e0;
-        }
-
-        .article-title a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        .article-title a:hover {
-            text-decoration: underline;
-        }
-
-        .article-date {
-            color: #888;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            background: #252525;
-            border-radius: 4px;
-        }
-
-        .article-excerpt {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
-            border-left: 3px solid #3b82f6;
-        }
-
-        .article-content {
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            max-height: 600px;
-            overflow-y: auto;
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
-        }
-
-        .article-content.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .article-content::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .article-content::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        .article-content::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 4px;
-        }
-
-        .article-content::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        .toggle-btn {
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid #3b82f6;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            display: inline-block;
-            margin-left: 0.5rem;
-        }
-
-        .toggle-btn:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #888;
-            font-size: 0.85rem;
-            border-top: 1px solid #333;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem 0.5rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .article-title {
-                font-size: 1.2rem;
-            }
-
-            .article-content {
-                max-height: 400px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>Yuqi Zhang's Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    #header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://raw.githubusercontent.com/yuqizhang1225/yuqizhang1225.github.io/main/ai-background.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    
+    #header-title {
+      text-align: center;
+    }
+    
+    #logo {
+      color: white;
+      text-decoration: none;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    #main-nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    .main-nav-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+    
+    .main-nav-link:hover {
+      opacity: 1;
+    }
+    
+    #main {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .article {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .article-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+    
+    .article-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .article-title a:hover {
+      color: #667eea;
+    }
+    
+    .article-date {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .article-entry {
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    .article-entry h2 {
+      color: #2c3e50;
+      margin: 1.5rem 0 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .article-entry h3 {
+      color: #34495e;
+      margin: 1.2rem 0 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .article-entry p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    .article-entry ul, .article-entry ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    
+    .article-entry li {
+      margin-bottom: 0.5rem;
+    }
+    
+    #footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      #logo {
+        font-size: 1.8rem;
+      }
+      
+      .article-title {
+        font-size: 1.4rem;
+      }
+      
+      #main {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Yuqi Zhang</h1>
-            <p>欢迎来到我的个人博客</p>
-            <nav class="nav">
-                <a href="/">首页</a>
-                <a href="https://github.com/yuqizhang1225">GitHub</a>
-            </nav>
-        </header>
+  <div id="container">
+    <header id="header">
+      <div id="header-outer">
+        <div id="header-title">
+          <h1 id="logo-wrap">
+            <a href="/" id="logo">Yuqi Zhang's Blog</a>
+          </h1>
+        </div>
+        <nav id="main-nav">
+          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </nav>
+      </div>
+    </header>
 
-        <main>
-            <div class="article-list">
-                <!-- 第一篇文章 -->
-                <article class="article-item">
-                    <h2 class="article-title">
-                        <a href="#article-1">1. 智能急救系统构想</a>
-                    </h2>
-                    <span class="article-date">2026-03-08</span>
-                    <div class="article-content">
-今天我想到，急救场景中机器人也能发挥重要作用。
-在公共场所最常见的 AED 自动体外除颤仪，虽然配有语音指导，但整个提示流程长达 30–40 秒。再加上现场人员往往处于慌乱状态，很容易错过心脏骤停后的黄金抢救 4 分钟。
-
-因此我设想，可以设计一套一体化智能急救系统：
-先将患者安置在预设的定位区域（比如设计成 L 形限位区，让人体被稳定卡在标准位置），再由 AI 自动识别并定位正确的除颤与按压部位，最后通过机械臂自动完成电击、胸外按压、人工呼吸等全套急救操作。
-
-这套系统的优势十分明显：
-第一，紧急情况下，即便有语音指导，普通人也容易出现操作失误，比如未及时让周围人员远离，可能导致干扰甚至触电风险。而一体化急救设备外部可加装绝缘层，从结构上提升安全性，降低人为失误。
-第二，在事故现场，如果患者口鼻有血液等体液，人工施救可能存在交叉感染或血型不合带来的健康风险，机器施救则能完全避免这一问题。
-第三，我国掌握规范胸外按压技能的人群不足总人口 1%，按压力度、位置不当都会直接导致抢救无效，而标准化的机械急救可以保证操作质量稳定可靠。
-
-在此基础上，我还想到几个延伸方向：
-软体机器人是否可以应用在这类急救场景中？它更柔软、更贴合人体，或许能减轻胸外按压等操作带来的二次伤害。
-同时，这套系统能否与其他设备联动，比如附近医院、社区健康监测终端、个人智能健康设备等，实现个人健康数据与急救设备的实时互通，进一步提高抢救成功率？
-                    </div>
-                </article>
-
-                <!-- 第二篇文章 - 可展开/收起 -->
-                <article class="article-item" id="article-2">
-                    <h2 class="article-title">
-                        <a href="#article-2">2. 李飞飞《我看见的世界》读后感</a>
-                        <button class="toggle-btn" onclick="toggleContent('article2-content')">
-                            <span id="article2-btn-text">展开全文</span>
-                        </button>
-                    </h2>
-                    <span class="article-date">2026-03-11</span>
-                    <div class="article-excerpt">
-李飞飞《我看见的世界》读后感
-
-作为一名对人工智能充满好奇，且一直憧憬着未来能出国深造、深耕这一领域的高中生，这个寒假，我认真读完了"人工智能之母"李飞飞教授的传记《我看见的世界》，内心久久不能平静。我不仅对人工智能的底层逻辑有了更清晰、更深刻的认知，更被李飞飞教授的成长经历深深打动，也让我更加坚定了自己追求热爱、奔赴远方的决心，更对未来的深造之路有了更具体的向往。
-
-一方面，我真切感受到原生家庭的力量。父母对孩子的理解、支持与托举，是孩子追逐梦想最坚实的后盾，这一点在李飞飞教授的经历中体现得淋漓尽致。书中有两个细节让我印象尤为深刻：初中时，她热爱阅读课外书，却被老师质疑不务正业，是她的父母力排众议，坚定地站在她这边，坚信广泛阅读能滋养心灵、开阔眼界；为了给她更广阔的发展平台，让她能在更适合的环境中追逐热爱，父母毅然放弃了国内优渥安稳的生活，带着她远赴美国求学，即便到了美国后只能从底层工作做起，省吃俭用艰难支撑家庭，也从未动摇过支持她读书、追求梦想的决心。
-
-另一方面，李飞飞教授对人工智能的热爱与持之以恒的努力，更让我看到了追梦路上最动人的模样，也让我更加坚定了深耕这一领域的信念。我一直对人工智能充满浓厚的兴趣，总好奇那些智能算法、图像识别背后的奥秘，而李飞飞教授的经历告诉我，热爱不是一时的新鲜感，而是跨越困境、勇往直前的动力，坚守初心，始终跟随内心的"北极星"笃定前行，才能抵达理想的彼岸。...
-
-（点击"展开全文"查看完整内容）
-                    </div>
-                    <div class="article-content" id="article2-content">
-李飞飞《我看见的世界》读后感
-
-作为一名对人工智能充满好奇，且一直憧憬着未来能出国深造、深耕这一领域的高中生，这个寒假，我认真读完了"人工智能之母"李飞飞教授的传记《我看见的世界》，内心久久不能平静。我不仅对人工智能的底层逻辑有了更清晰、更深刻的认知，更被李飞飞教授的成长经历深深打动，也让我更加坚定了自己追求热爱、奔赴远方的决心，更对未来的深造之路有了更具体的向往。
-
-一方面，我真切感受到原生家庭的力量。父母对孩子的理解、支持与托举，是孩子追逐梦想最坚实的后盾，这一点在李飞飞教授的经历中体现得淋漓尽致。书中有两个细节让我印象尤为深刻：初中时，她热爱阅读课外书，却被老师质疑不务正业，是她的父母力排众议，坚定地站在她这边，坚信广泛阅读能滋养心灵、开阔眼界；为了给她更广阔的发展平台，让她能在更适合的环境中追逐热爱，父母毅然放弃了国内优渥安稳的生活，带着她远赴美国求学，即便到了美国后只能从底层工作做起，省吃俭用艰难支撑家庭，也从未动摇过支持她读书、追求梦想的决心。
-
-另一方面，李飞飞教授对人工智能的热爱与持之以恒的努力，更让我看到了追梦路上最动人的模样，也让我更加坚定了深耕这一领域的信念。我一直对人工智能充满浓厚的兴趣，总好奇那些智能算法、图像识别背后的奥秘，而李飞飞教授的经历告诉我，热爱不是一时的新鲜感，而是跨越困境、勇往直前的动力，坚守初心，始终跟随内心的"北极星"笃定前行，才能抵达理想的彼岸。
-
-李飞飞教授15岁初到美国时碰到的种种艰难，远超我想象，更让我心生敬佩。文化隔阂让她难以融入陌生的环境，生活的困顿让她不得不早早体会生活的艰辛，校园霸凌、人身安全威胁等重重困境接踵而至，那些至暗时刻，光是读来就让人揪心。但最让我动容的是，她在书中写道："这些都是至暗时刻，但它们让我更加珍视在一路上发现的人性的光辉。永远保持好奇心和勇气，永远愿意追问那些看似不可能的问题，追寻自己的北极星。"这句话深深刻在我心里，也让我明白，未来我出国深造，或许也会遇到语言障碍、文化差异、学习压力等困难，但只要保持对人工智能的热爱，带着勇气和好奇心，就没有跨不过去的坎。
-
-李飞飞教授用自己的经历，告诉了我什么是热爱与坚守，也让我对未来的路有了更清晰的方向。作为一名渴望出国深造、深耕人工智能领域的高中生，我深知，这条路不会轻松，但我会以李飞飞教授为榜样，带着勇气和信念，奔赴海外，去探索更广阔的世界，去追寻属于自己的"北极星"。或许这正是人生该有的模样——找到热爱的事物，便为之全力以赴、奋力向前。
-
-书中观点摘抄与思考：
-
-P119  通过一个看似简单明了的问题来探索感官信息的处理方式。例如：如果给一只猫播放一连串精确控制的视觉刺激（如简短的自然风景片段），我们是否能够只利用猫大脑中检测到的信号来重建这些片段。
-理解与思考：在猫的大脑中识别信号，并截取猫的表情和发声，就可以读懂它的情绪表达。宠物市场中的这类产品的底层逻辑应该就是这样的吧。
-
-P166 通过理解各种物体来理解视觉世界。
-P194 不仅仅是对世界特征的描述，而是对世界进行整体建模的起点，可以逐个描绘出完成的地球生活图景，并暗示事物之间的关系，这样才可以反映整个世界的真正意义。
-理解与思考：当下盛行的人工智能大模型都已实现了事物间的联系，已经可以多元反映世界的同时，我们作为当下的高中生，也应该深思在技术更新迭如此迅猛的当下，我们能做些什么，我们人生的意义和价值如何体现。
-
-人工智能的原理：
-P199 让算法能够识别出任何东西的秘诀，就在于打造一个无所不包的数据训练集。
-P219 我们的目标是在每幅图像中嵌入纯粹的人类感知，希望在整个图像集上训练出来的计算机视觉模型也能迸发类似人类的智慧火花。
-P239 Image Net（数据集）所提供的"语义空间"在不断扩大的同时，也变得更加密集，导致正确答案与错误答案之间的差距越来越小。
-P261  GPU—Graphics Processing Unit
-
-网络知识补充：
-知乎上给了形象的解释：GPU可以简单理解成"专门干重活的小马达"。
-GPU全称是"图形处理器"（Graphics Processing Unit），跟CPU（中央处理器）一样都是电脑里的核心芯片，但分工完全不一样。CPU更像"全能管家"，啥复杂逻辑都能管，但它"手脚不多"，一次只能干一件精细活儿；GPU呢，就像"特种兵小队"，胳膊腿儿（核心单元）超多，擅长把一堆重复的活儿分给不同小弟同时干，比如渲染1000个像素点，CPU可能一个个慢慢算，GPU直接喊"1000个小弟，每人算一个，速度翻1000倍"。
-好形象的描述。
-
-P264  现实世界中幽灵般的碎片，以恰当好处的方式组织起来，供算法来查看。
-P288 把视觉敏锐度和百科全书式的知识深度结合，可以带来一种全新的能力。它是一种全新的存在，是一种更深入、更精细的透镜，能够从我们从未想象过的角度揭示这个世界。
-P296  照片可能是静止的，但我们善于提取凝固在照片中的运动状态，从幅度很大的动作到几乎无法察觉的微小动作，我们都能敏锐地观察到。我们可以想象画面捕捉到的瞬间所处的环境，以及可能产生的结果。
-理解与思考：可想而知，当时给图片贴精准标签就是怎样海量庞大的工作量。李飞飞也不愧被称作"人工智能之母"，开创了先河，引领了未来。
-
-P298  形象地讲述了人工智能与人类区别：
-人工智能这种技术，就算房间里着火也会不管不顾，完美地走出下一步棋。现代人工智能的表现就像玩游戏的天才，可以熟练应对孤立的任务，应对"错误率"等狭隘的指标，却无法注意到落在棋盘上的余烬正在燃烧。
-人类的感知力虽然有种种局限，但与机器截然相反。我们从整体上看待世界，不仅能识别世界的内容，更可以进一步理解不同事物之间的关系、意义、过去和未来。这就是"要点"，我们不仅仅是见证者，更是故事的讲述者。
-理解与思考：人工智能是冰冷的，而人的内心是火热的，如何让技术"有温度"的应用未来有很大的前景，比如老龄化人口的增加，老年人更需要有温度的关心与帮助。
-
-P301 语言文字和视觉图像是两个完全不同的领域。把卷积神经网络和递归神经网络进行配对。一个负责对视觉信息进行编码，同时将它跟单词配对，另一个负责生成语言。然后我们以成对出现的图像和人类文字描述为基础，来训练我们的模型。
-
-LLM-Large Language Model（大语言模型）
-
-P377  数据不仅有价值，而且具有影响力，甚至可以产生前所未有的决定性影响。
-
-P408  我们相对万事万物所蕴含的空间、时间甚至意义有更深入的了解。我们的目标不仅仅是数量上的增加，还有细节和细微差别的扩展。新的数据处理方法不仅仅是简单的整理和编目，而是要模拟整个环境，模拟在环境中展开的行动。这就是为什么随着技术复杂性出现爆炸式增长，我们研究背后的人本主义也在不断发展。要形成对现实生活的整体观，为了创造比以往任何时候都更加真实的世界表征，我们需要深度和保真度，而在我看来，即使目前最先进的技术也达不到这种需求。因此，我们再次热血沸腾，迎接挑战。
-
-P410  新的"多模态"网络不仅限于在文本上进行训练，还可以利用照片、音频、录音甚至视频进行训练，从而学会了生成不同形式的媒体内容。
-理解与思考：多模态网络一旦被训练开发出来，可以根据提示词生成海报，可以根据录制人的语音和动作，从而生成数字人完成直播（实现24小时不间断直播）或是主持工作，还有包括播客的完成。形式越来越多样化。
-
-书中的最后一段话鼓舞人心：
-在现实世界中，存在着一颗北极星，那是小熊星座中最明亮的恒星。而在思想的世界里，却存在着无数个类似的导航指引。每一种新的追求，每一个新的痴迷，都悬挂在黑暗的地平线上，闪烁着耀眼的光芒，向不懈追寻的人们招呼致意。这就是为什么我最大的快乐在于指导旅程永远不会结束，我永远不会停歇。总会有新的事物等着我去追寻探索。
-                    </div>
-                </article>
+    <div class="outer">
+      <section id="main">
+        
+        <article class="article">
+          <div class="article-meta">
+            <span class="article-date">2026-03-11</span>
+          </div>
+          <div class="article-inner">
+            <header class="article-header">
+              <h1 class="article-title">
+                <a href="#">李飞飞《我看见的世界》读后感</a>
+              </h1>
+            </header>
+            <div class="article-entry">
+              <p>作为一名对人工智能充满好奇，且一直憧憬着未来能出国深造、深耕这一领域的高中生，这个寒假，我认真读完了"人工智能之母"李飞飞教授的传记《我看见的世界》，内心久久不能平静。我不仅对人工智能的底层逻辑有了更清晰、更深刻的认知，更被李飞飞教授的成长经历深深打动，也让我更加坚定了自己追求热爱、奔赴远方的决心，更对未来的深造之路有了更具体的向往。</p>
+              
+              <h2>原生家庭的力量</h2>
+              <p>一方面，我真切感受到原生家庭的力量。父母对孩子的理解、支持与托举，是孩子追逐梦想最坚实的后盾，这一点在李飞飞教授的经历中体现得淋漓尽致。书中有两个细节让我印象尤为深刻：初中时，她热爱阅读课外书，却被老师质疑不务正业，是她的父母力排众议，坚定地站在她这边，坚信广泛阅读能滋养心灵、开阔眼界；为了给她更广阔的发展平台，让她能在更适合的环境中追逐热爱，父母毅然放弃了国内优渥安稳的生活，带着她远赴美国求学，即便到了美国后只能从底层工作做起，省吃俭用艰难支撑家庭，也从未动摇过支持她读书、追求梦想的决心。</p>
+              
+              <h2>热爱与坚守</h2>
+              <p>另一方面，李飞飞教授对人工智能的热爱与持之以恒的努力，更让我看到了追梦路上最动人的模样，也让我更加坚定了深耕这一领域的信念。我一直对人工智能充满浓厚的兴趣，总好奇那些智能算法、图像识别背后的奥秘，而李飞飞教授的经历告诉我，热爱不是一时的新鲜感，而是跨越困境、勇往直前的动力，坚守初心，始终跟随内心的"北极星"笃定前行，才能抵达理想的彼岸。</p>
+              
+              <h2>面对困境的勇气</h2>
+              <p>李飞飞教授15岁初到美国时碰到的种种艰难，远超我想象，更让我心生敬佩。文化隔阂让她难以融入陌生的环境，生活的困顿让她不得不早早体会生活的艰辛，校园霸凌、人身安全威胁等重重困境接踵而至，那些至暗时刻，光是读来就让人揪心。但最让我动容的是，她在书中写道："这些都是至暗时刻，但它们让我更加珍视在一路上发现的人性的光辉。永远保持好奇心和勇气，永远愿意追问那些看似不可能的问题，追寻自己的北极星。"这句话深深刻在我心里，也让我明白，未来我出国深造，或许也会遇到语言障碍、文化差异、学习压力等困难，但只要保持对人工智能的热爱，带着勇气和好奇心，就没有跨不过去的坎。</p>
+              
+              <h2>结语</h2>
+              <p>李飞飞教授用自己的经历，告诉了我什么是热爱与坚守，也让我对未来的路有了更清晰的方向。作为一名渴望出国深造、深耕人工智能领域的高中生，我深知，这条路不会轻松，但我会以李飞飞教授为榜样，带着勇气和信念，奔赴海外，去探索更广阔的世界，去追寻属于自己的"北极星"。或许这正是人生该有的模样——找到热爱的事物，便为之全力以赴、奋力向前。</p>
             </div>
-        </main>
+          </div>
+        </article>
 
-        <footer class="footer">
-            <p>&copy; 2026 Yuqi Zhang. All rights reserved.</p>
-        </footer>
+        <article class="article">
+          <div class="article-meta">
+            <span class="article-date">2026-03-08</span>
+          </div>
+          <div class="article-inner">
+            <header class="article-header">
+              <h1 class="article-title">
+                <a href="#">一体化智能急救系统设想</a>
+              </h1>
+            </header>
+            <div class="article-entry">
+              <p>今天我想到，急救场景中机器人也能发挥重要作用。</p>
+              
+              <p>在公共场所最常见的 AED 自动体外除颤仪，虽然配有语音指导，但整个提示流程长达 30–40 秒。再加上现场人员往往处于慌乱状态，很容易错过心脏骤停后的黄金抢救 4 分钟。</p>
+              
+              <h2>一体化智能急救系统设想</h2>
+              <p>因此我设想，可以设计一套一体化智能急救系统：</p>
+              <p>先将患者安置在预设的定位区域（比如设计成 L 形限位区，让人体被稳定卡在标准位置），再由 AI 自动识别并定位正确的除颤与按压部位，最后通过机械臂自动完成电击、胸外按压、人工呼吸等全套急救操作。</p>
+              
+              <h2>系统优势</h2>
+              <p>这套系统的优势十分明显：</p>
+              <ul>
+                <li><strong>安全性提升：</strong>紧急情况下，即便有语音指导，普通人也容易出现操作失误，比如未及时让周围人员远离，可能导致干扰甚至触电风险。而一体化急救设备外部可加装绝缘层，从结构上提升安全性，降低人为失误。</li>
+                <li><strong>避免交叉感染：</strong>在事故现场，如果患者口鼻有血液等体液，人工施救可能存在交叉感染或血型不合带来的健康风险，机器施救则能完全避免这一问题。</li>
+                <li><strong>标准化操作：</strong>我国掌握规范胸外按压技能的人群不足总人口 1%，按压力度、位置不当都会直接导致抢救无效，而标准化的机械急救可以保证操作质量稳定可靠。</li>
+              </ul>
+              
+              <h2>延伸方向</h2>
+              <p>在此基础上，我还想到几个延伸方向：</p>
+              <ul>
+                <li>软体机器人是否可以应用在这类急救场景中？它更柔软、更贴合人体，或许能减轻胸外按压等操作带来的二次伤害。</li>
+                <li>这套系统能否与其他设备联动，比如附近医院、社区健康监测终端、个人智能健康设备等，实现个人健康数据与急救设备的实时互通，进一步提高抢救成功率？</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </section>
     </div>
 
-    <script>
-        function toggleContent(contentId) {
-            const content = document.getElementById(contentId);
-            const btnText = document.getElementById('article2-btn-text');
-
-            if (content.classList.contains('show')) {
-                content.classList.remove('show');
-                btnText.textContent = '展开全文';
-            } else {
-                content.classList.add('show');
-                btnText.textContent = '收起全文';
-            }
-        }
-    </script>
+    <footer id="footer">
+      <div class="outer">
+        <div id="footer-info" class="inner">
+          &copy; 2026 Yuqi Zhang<br>
+          Powered by Yuqi Zhang
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
