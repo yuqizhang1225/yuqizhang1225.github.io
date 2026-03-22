@@ -1,139 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, autumn" />
-    <title>
-        Yuqi Zhang
-    </title>
-    <!-- favicon -->
-    
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico" />
-     
+  <meta charset="utf-8">
+  
+  
+  <title>关注留守儿童，以技术传递温暖 | Yuqi Zhang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="作为一名高中生，至今想起初中时参加的山区徒步活动，那些留守儿童的身影仍会在我脑海里浮现。那是我第一次真切地接触到他们，走进那些略显贫瘠的家庭，看不到父母陪伴的身影，只有年迈的爷爷奶奶和年幼的孩子相互依靠，而他们的父母，为了给家人更好的生活，只能忍痛背井离乡，奔赴遥远的大城市打拼谋生。 他们的样子，真的让我特别心疼。大多孩子都很腼腆，眼神里带着一丝怯懦，不敢主动和我们说话，哪怕我们主动打招呼，他们也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关注留守儿童，以技术传递温暖">
+<meta property="og:url" content="https://yuqizhang1225.github.io/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/index.html">
+<meta property="og:site_name" content="Yuqi Zhang">
+<meta property="og:description" content="作为一名高中生，至今想起初中时参加的山区徒步活动，那些留守儿童的身影仍会在我脑海里浮现。那是我第一次真切地接触到他们，走进那些略显贫瘠的家庭，看不到父母陪伴的身影，只有年迈的爷爷奶奶和年幼的孩子相互依靠，而他们的父母，为了给家人更好的生活，只能忍痛背井离乡，奔赴遥远的大城市打拼谋生。 他们的样子，真的让我特别心疼。大多孩子都很腼腆，眼神里带着一丝怯懦，不敢主动和我们说话，哪怕我们主动打招呼，他们也">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232600484.png">
+<meta property="og:image" content="c:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232617657.png">
+<meta property="article:published_time" content="2025-10-05T06:16:33.000Z">
+<meta property="article:modified_time" content="2026-03-18T15:27:48.606Z">
+<meta property="article:author" content="Yuqi Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232600484.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Yuqi Zhang" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-    <script>
-        infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
-<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-    <div class="container">
-        <header class="header">
-    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <h3 class="invisibile">
-            <a href="/" class="logo">
-                Yuqi Zhang
-            </a>
-        </h3>
-        <button class="menu">menu</button>
-    </nav>
-
-    <button class="ipad-menu menu">menu</button>
-
-    <h1 class="title" id="main-title">
-        <a href="/" class="logo">
-            Yuqi Zhang
-        </a>
-    </h1>
-    <h2 class="desc">
-        
-    </h2>
-
-    <div class="links">
-        <ul>
-            
-            <li>
-                <a target="_blank" rel="noopener" href="https://github.com/FrontendSophie">
-                    Github
-                </a>
-            </li>
-            
-            <li>
-                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/frontendsophie/">
-                    LinkedIn
-                </a>
-            </li>
-            
-        </ul>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yuqi Zhang</a>
+      </h1>
+      
     </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yuqizhang1225.github.io"></form>
+      </div>
+    </div>
+  </div>
 </header>
-        <main class="main">
-            <article class="post">
+
+      <div class="outer">
+        <section id="main"><article id="post-关注留守儿童，以技术传递温暖" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/" class="article-date">
+  <time class="dt-published" datetime="2025-10-05T06:16:33.000Z" itemprop="datePublished">2025-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      关注留守儿童，以技术传递温暖
+    </h1>
+  
+
+      </header>
     
-    <h2 class="post-title">
-        关注留守儿童，以技术传递温暖
-    </h2>
-    <ul class="post-date">
-        <li>
-            2025-10-05
-        </li>
-        <li>
-            Yuqi Zhang
-        </li>
-    </ul>
-    <div class="post-content">
+    <div class="e-content article-entry" itemprop="articleBody">
+      
         <p>作为一名高中生，至今想起初中时参加的山区徒步活动，那些留守儿童的身影仍会在我脑海里浮现。那是我第一次真切地接触到他们，走进那些略显贫瘠的家庭，看不到父母陪伴的身影，只有年迈的爷爷奶奶和年幼的孩子相互依靠，而他们的父母，为了给家人更好的生活，只能忍痛背井离乡，奔赴遥远的大城市打拼谋生。</p>
 <p>他们的样子，真的让我特别心疼。大多孩子都很腼腆，眼神里带着一丝怯懦，不敢主动和我们说话，哪怕我们主动打招呼，他们也会羞涩地低下头；身上的衣服洗得发白，还沾着污渍，脚上的鞋子早就开了胶、磨平了鞋底，却依旧勉强穿着。爷爷奶奶脸上刻满了皱纹，面对隔代的隔阂，既不知道怎么和孩子好好谈心，遇到孩子的困惑，也常常束手无策。</p>
 <p>后来我查了相关资料才知道，2020年我国留守儿童有6693万人，其中农村留守儿童就有4177万人，大多集中在河南、四川这些劳务输出大省。更让我揪心的是，农村留守儿童的抑郁检出率有28.5%，他们缺少亲情关爱，也没有有效的监护，成长路上满是不易。</p>
@@ -141,35 +105,121 @@
 <p><img src="C:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232600484.png" alt="image-20260318232600484"></p>
 <p><img src="C:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232617657.png" alt="image-20260318232617657"></p>
 
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://yuqizhang1225.github.io/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/" data-id="cuidIRfraxb-u3FFM9885W1_1" data-title="关注留守儿童，以技术传递温暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一体化智能急救系统设想
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-        </main>
-        <aside class="aside">
-            <div class="close"></div>
-            <section class="aside-section">
-                
-    <h1>Categories</h1>
 
+
+</section>
+        
+          <aside id="sidebar">
+  
     
 
-            </section>
-            <section class="aside-section">
-                
-    <h1>Archives</h1>
-
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a></li></ul>
-
-
-            </section>
-            <section class="aside-section tag">
-                
-    <h1>Tags</h1>
-
+  
     
 
-            </section>
-        </aside>
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
     </div>
-</body>
+  </div>
 
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/">李飞飞《我看见的世界》读后感</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/">一体化智能急救系统设想</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/">关注留守儿童，以技术传递温暖</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Yuqi Zhang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
 </html>
