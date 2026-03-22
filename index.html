@@ -1,298 +1,228 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, autumn" />
+    <title>
+        Yuqi Zhang
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico" />
+     
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
 
+    <script>
+        infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                Yuqi Zhang
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            Yuqi Zhang
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul>
+            
+            <li>
+                <a target="_blank" rel="noopener" href="https://github.com/FrontendSophie">
+                    Github
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/frontendsophie/">
+                    LinkedIn
+                </a>
+            </li>
+            
+        </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
 </header>
+        <main class="main">
+            
+<section class="posts">
+    
+        <article class="post">
+            
+                    <h1 class="post-title">
+                        <a href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/">
+                            李飞飞《我看见的世界》读后感
+                        </a>
+                    </h1>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-李飞飞《我看见的世界》读后感" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T06:28:42.000Z" itemprop="datePublished">2026-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                    <ul class="post-date">
+                        <li>
+                            March 14, 2026
+                        </li>
+                        <li>
+                            Yuqi Zhang
+                        </li>
+                    </ul>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/">李飞飞《我看见的世界》读后感</a>
-    </h1>
-  
+        <article class="post">
+            
+                    <h1 class="post-title">
+                        <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/">
+                            一体化智能急救系统设想
+                        </a>
+                    </h1>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>作为一名对人工智能充满好奇，且一直憧憬着未来能出国深造、深耕这一领域的高中生，这个寒假，我认真读完了”人工智能之母”李飞飞教授的传记《我看见的世界》，内心久久不能平静。我不仅对人工智能的底层逻辑有了更清晰、更深刻的认知，更被李飞飞教授的成长经历深深打动，也让我更加坚定了自己追求热爱、奔赴远方的决心，更对未来的深造之路有了更具体的向往。</p>
-<h2 id="原生家庭的力量"><a href="#原生家庭的力量" class="headerlink" title="原生家庭的力量"></a>原生家庭的力量</h2><p>一方面，我真切感受到原生家庭的力量。父母对孩子的理解、支持与托举，是孩子追逐梦想最坚实的后盾，这一点在李飞飞教授的经历中体现得淋漓尽致。书中有两个细节让我印象尤为深刻：初中时，她热爱阅读课外书，却被老师质疑不务正业，是她的父母力排众议，坚定地站在她这边，坚信广泛阅读能滋养心灵、开阔眼界；为了给她更广阔的发展平台，让她能在更适合的环境中追逐热爱，父母毅然放弃了国内优渥安稳的生活，带着她远赴美国求学，即便到了美国后只能从底层工作做起，省吃俭用艰难支撑家庭，也从未动摇过支持她读书、追求梦想的决心。</p>
-<h2 id="热爱与坚守"><a href="#热爱与坚守" class="headerlink" title="热爱与坚守"></a>热爱与坚守</h2><p>另一方面，李飞飞教授对人工智能的热爱与持之以恒的努力，更让我看到了追梦路上最动人的模样，也让我更加坚定了深耕这一领域的信念。我一直对人工智能充满浓厚的兴趣，总好奇那些智能算法、图像识别背后的奥秘，而李飞飞教授的经历告诉我，热爱不是一时的新鲜感，而是跨越困境、勇往直前的动力，坚守初心，始终跟随内心的”北极星”笃定前行，才能抵达理想的彼岸。</p>
-<h2 id="面对困境的勇气"><a href="#面对困境的勇气" class="headerlink" title="面对困境的勇气"></a>面对困境的勇气</h2><p>李飞飞教授15岁初到美国时碰到的种种艰难，远超我想象，更让我心生敬佩。文化隔阂让她难以融入陌生的环境，生活的困顿让她不得不早早体会生活的艰辛，校园霸凌、人身安全威胁等重重困境接踵而至，那些至暗时刻，光是读来就让人揪心。但最让我动容的是，她在书中写道：”这些都是至暗时刻，但它们让我更加珍视在一路上发现的人性的光辉。永远保持好奇心和勇气，永远愿意追问那些看似不可能的问题，追寻自己的北极星。”这句话深深刻在我心里，也让我明白，未来我出国深造，或许也会遇到语言障碍、文化差异、学习压力等困难，但只要保持对人工智能的热爱，带着勇气和好奇心，就没有跨不过去的坎。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>李飞飞教授用自己的经历，告诉了我什么是热爱与坚守，也让我对未来的路有了更清晰的方向。作为一名渴望出国深造、深耕人工智能领域的高中生，我深知，这条路不会轻松，但我会以李飞飞教授为榜样，带着勇气和信念，奔赴海外，去探索更广阔的世界，去追寻属于自己的”北极星”。或许这正是人生该有的模样——找到热爱的事物，便为之全力以赴、奋力向前。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/" data-id="cuidcAoxN7WccrH90INY4vx_4" data-title="李飞飞《我看见的世界》读后感" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-一体化智能急救系统设想" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/" class="article-date">
-  <time class="dt-published" datetime="2026-03-08T09:29:12.000Z" itemprop="datePublished">2026-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                    <ul class="post-date">
+                        <li>
+                            March 8, 2026
+                        </li>
+                        <li>
+                            Yuqi Zhang
+                        </li>
+                    </ul>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/">一体化智能急救系统设想</a>
-    </h1>
-  
+        <article class="post">
+            
+                    <h1 class="post-title">
+                        <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/">
+                            关注留守儿童，以技术传递温暖
+                        </a>
+                    </h1>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>今天我想到，急救场景中机器人也能发挥重要作用。</p>
-<p>在公共场所最常见的 AED 自动体外除颤仪，虽然配有语音指导，但整个提示流程长达 30–40 秒。再加上现场人员往往处于慌乱状态，很容易错过心脏骤停后的黄金抢救 4 分钟。 </p>
-<p>因此我设想，可以设计一套一体化智能急救系统：</p>
-<p>先将患者安置在预设的定位区域（比如设计成 L 形限位区，让人体被稳定卡在标准位置），再由 AI 自动识别并定位正确的除颤与按压部位，最后通过机械臂自动完成电击、胸外按压、人工呼吸等全套急救操作。</p>
-<h2 id="系统优势"><a href="#系统优势" class="headerlink" title="系统优势"></a>系统优势</h2><p>这套系统的优势十分明显：</p>
-<p>· **安全性提升：**紧急情况下，即便有语音指导，普通人也容易出现操作失误，比如未及时让周围人员远离，可能导致干扰甚至触电风险。而一体化急救设备外部可加装绝缘层，从结构上提升安全性，降低人为失误。</p>
-<p>· **避免交叉感染：**在事故现场，如果患者口鼻有血液等体液，人工施救可能存在交叉感染或血型不合带来的健康风险，机器施救则能完全避免这一问题。</p>
-<p>· **标准化操作：**我国掌握规范胸外按压技能的人群不足总人口 1%，按压力度、位置不当都会直接导致抢救无效，而标准化的机械急救可以保证操作质量稳定可靠。</p>
-<h2 id="延伸方向"><a href="#延伸方向" class="headerlink" title="延伸方向"></a>延伸方向</h2><p>在此基础上，我还想到几个延伸方向：</p>
-<p>· 软体机器人是否可以应用在这类急救场景中？它更柔软、更贴合人体，或许能减轻胸外按压等操作带来的二次伤害。</p>
-<p>· 这套系统能否与其他设备联动，比如附近医院、社区健康监测终端、个人智能健康设备等，实现个人健康数据与急救设备的实时互通，进一步提高抢救成功率？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/" data-id="cuidmiT-Ba-Bm9m8jK7QRNEWL" data-title="一体化智能急救系统设想" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-关注留守儿童，以技术传递温暖" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/" class="article-date">
-  <time class="dt-published" datetime="2025-10-05T06:16:33.000Z" itemprop="datePublished">2025-10-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                    <ul class="post-date">
+                        <li>
+                            October 5, 2025
+                        </li>
+                        <li>
+                            Yuqi Zhang
+                        </li>
+                    </ul>
+                    
+                        <div class="post-cover">
+                            <img src="C:\Users\watw\AppData\Roaming\Typora\typora-user-images\image-20260318232600484.png">
+                        </div>
+                    
+                    <div class="post-content ">
+                        
+                            <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/" class="more-link">Continue reading</a>
+                    </div>
+        </article>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/">关注留守儿童，以技术传递温暖</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>作为一名高中生，至今想起初中时参加的山区徒步活动，那些留守儿童的身影仍会在我脑海里浮现。那是我第一次真切地接触到他们，走进那些略显贫瘠的家庭，看不到父母陪伴的身影，只有年迈的爷爷奶奶和年幼的孩子相互依靠，而他们的父母，为了给家人更好的生活，只能忍痛背井离乡，奔赴遥远的大城市打拼谋生。</p>
-<p>他们的样子，真的让我特别心疼。大多孩子都很腼腆，眼神里带着一丝怯懦，不敢主动和我们说话，哪怕我们主动打招呼，他们也会羞涩地低下头；身上的衣服洗得发白，还沾着污渍，脚上的鞋子早就开了胶、磨平了鞋底，却依旧勉强穿着。爷爷奶奶脸上刻满了皱纹，面对隔代的隔阂，既不知道怎么和孩子好好谈心，遇到孩子的困惑，也常常束手无策。</p>
-<p>后来我查了相关资料才知道，2020年我国留守儿童有6693万人，其中农村留守儿童就有4177万人，大多集中在河南、四川这些劳务输出大省。更让我揪心的是，农村留守儿童的抑郁检出率有28.5%，他们缺少亲情关爱，也没有有效的监护，成长路上满是不易。</p>
-<p>我平时特别喜欢人工智能，课余时间也会跟着学一些基础技术。看着这些缺少陪伴的孩子，我忽然有了一个想法：或许可以用AI为他们做点什么，比如做一个AI对话机器人，模仿他们父母的声音，陪他们说说话，让他们也能感受到一丝父母的温暖，哪怕只是简单的一句叮嘱也好。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/" data-id="cuidTWtL6XwPE5asvEEA7VBeM" data-title="关注留守儿童，以技术传递温暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
 </section>
-        
-          <aside id="sidebar">
-  
+
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
+    <h1>Categories</h1>
+
     
 
-  
+            </section>
+            <section class="aside-section">
+                
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/">2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a></li></ul>
+
+
+            </section>
+            <section class="aside-section tag">
+                
+    <h1>Tags</h1>
+
     
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
+            </section>
+        </aside>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/03/14/%E6%9D%8E%E9%A3%9E%E9%A3%9E%E3%80%8A%E6%88%91%E7%9C%8B%E8%A7%81%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/">李飞飞《我看见的世界》读后感</a>
-          </li>
-        
-          <li>
-            <a href="/2026/03/08/%E4%B8%80%E4%BD%93%E5%8C%96%E6%99%BA%E8%83%BD%E6%80%A5%E6%95%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E6%83%B3/">一体化智能急救系统设想</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/05/%E5%85%B3%E6%B3%A8%E7%95%99%E5%AE%88%E5%84%BF%E7%AB%A5%EF%BC%8C%E4%BB%A5%E6%8A%80%E6%9C%AF%E4%BC%A0%E9%80%92%E6%B8%A9%E6%9A%96/">关注留守儿童，以技术传递温暖</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
+
 </html>
